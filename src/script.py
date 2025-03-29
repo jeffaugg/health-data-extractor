@@ -1,11 +1,16 @@
 import pandas as pd
 from tabula import read_pdf
 import zipfile
+import os  
 
 # Configurações
 pdf_path = "Anexo.pdf"
-output_csv = "procedimentos_saude.csv"
-zip_name = "Jeferson_Augusto.zip"  
+output_dir = "output"
+output_csv = os.path.join(output_dir, "procedimentos_saude.csv")
+zip_name = os.path.join(output_dir, "Jeferson_Augusto.zip")
+
+# Criar diretório de saída, se não existir
+os.makedirs(output_dir, exist_ok=True)
 
 # Extrair tabelas de todas as páginas do PDF
 tables = read_pdf(
