@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  pdf-processor:
+    build: .
+    volumes:
+      - ./output:/app/output  # Volume para saída
+      - ./Anexo.pdf:/app/Anexo.pdf  # Monta o PDF de entrada
